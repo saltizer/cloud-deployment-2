@@ -15,7 +15,7 @@ import geni.rspec.pg as rspec
 pc = portal.Context()
 
 # Create a Request object to start building the RSpec.
-request = pc.makeRequestRSpec()
+request = portal.context.makeRequestRSpec()
  
 # Add a raw PC to the request.
 node1 = request.XenVM("node1")
@@ -60,4 +60,4 @@ node1.routable_control_ip = "true"
 node1.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
 
 # Print the RSpec to the enclosing page.
-pc.printRequestRSpec(request)
+portal.context.printRequestRSpec()
