@@ -58,9 +58,6 @@ node1.routable_control_ip = "true"
 
 # Install and execute a script that is contained in the repository.
 node1.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
-node2.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
-node3.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
-node4.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
 
 # Print the RSpec to the enclosing page.
 pc.printRequestRSpec(request)
