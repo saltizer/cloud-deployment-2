@@ -15,7 +15,7 @@ import geni.rspec.pg as pg
 pc = portal.Context()
 
 # Create a Request object to start building the RSpec.
-request = pc.makeRequestRSpec()
+request = portal.context.makeRequestRSpec()
  
 # Add a raw PC to the request.
 node1 = request.XenVM("node1")
