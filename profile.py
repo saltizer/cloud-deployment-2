@@ -42,12 +42,7 @@ iface4 = node1.addInterface("if4")
 iface4.component_id = "eth4"
 iface4.addAddress(rspec.IPv4Address("192.168.1.4", "255.255.255.0"))
 
-link = request.LAN("lan")
-
-link.addInterface(iface1)
-link.addInterface(iface2)
-link.addInterface(iface3)
-link.addInterface(iface4)
+link = request.Link(members = [node1, node2, node3, node4])
 
 node1.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
 node2.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
@@ -58,6 +53,9 @@ node1.routable_control_ip = "true"
 
 # Install and execute a script that is contained in the repository.
 node1.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
+node2.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
+node3.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
+node4.addService(rspec.Execute(shell="sh", command="/local/repository/silly.sh"))
 
 # Print the RSpec to the enclosing page.
 portal.context.printRequestRSpec()
